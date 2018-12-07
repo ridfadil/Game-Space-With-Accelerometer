@@ -10,10 +10,9 @@ import java.util.Random;
 import static com.andevindo.spaceshooter.GameView.SCORE;
 
 /**
- * Created on   : 8/12/2017
- * Developed by : Hendrawan Adi Wijaya
- * Github       : https://github.com/andevindo
- * Website      : http://www.andevindo.com
+ * Created on   : 8/12/2018
+ * Developed by : Muhamad Farid Padilah
+ * Github       : https://github.com/ridfadil
  */
 
 public class Enemy {
@@ -39,7 +38,7 @@ public class Enemy {
 
         mHP = 5;
 
-        mEnemies = new int[]{R.drawable.enemy_red_1, R.drawable.enemy_red_2, R.drawable.enemy_red_3};
+        mEnemies = new int[]{R.drawable.musuhtwofix, R.drawable.musuhtwofix, R.drawable.enemy_red_3};
         Random random = new Random();
         mBitmap = BitmapFactory.decodeResource(context.getResources(), mEnemies[random.nextInt(3)]);
         mBitmap = Bitmap.createScaledBitmap(mBitmap, mBitmap.getWidth() * 3/5, mBitmap.getHeight() * 3/5, false);

@@ -9,10 +9,9 @@ import android.util.Log;
 import java.util.ArrayList;
 
 /**
- * Created on   : 8/11/2017
- * Developed by : Hendrawan Adi Wijaya
- * Github       : https://github.com/andevindo
- * Website      : http://www.andevindo.com
+ * Created on   : 8/12/2018
+ * Developed by : Muhamad Farid Padilah
+ * Github       : https://github.com/ridfadil
  */
 
 public class Player {

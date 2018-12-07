@@ -8,10 +8,9 @@ import android.util.Log;
 import java.util.Random;
 
 /**
- * Created on   : 8/12/2017
- * Developed by : Hendrawan Adi Wijaya
- * Github       : https://github.com/andevindo
- * Website      : http://www.andevindo.com
+ * Created on   : 8/12/2018
+ * Developed by : Muhamad Farid Padilah
+ * Github       : https://github.com/ridfadil
  */
 
 public class Star {
@@ -23,7 +22,7 @@ public class Star {
     private int mSpeed;
     private int mScreenSizeX;
     private int mScreenSizeY;
-    private int[] mStars = new int[]{R.drawable.star_1, R.drawable.star_2, R.drawable.star_3};
+    private int[] mStars = new int[]{R.drawable.moon, R.drawable.star_1, R.drawable.star_3};
 
     public Star(Context context, int screenSizeX, int screenSizeY, boolean randomY){
         mScreenSizeX = screenSizeX;

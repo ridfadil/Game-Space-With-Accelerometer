@@ -13,14 +13,16 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener{
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private GameView mGameView;
     private float mXTemp;
+    String nama = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        nama = getIntent().getStringExtra("nama");
         //Membuat tampilan menjadi full screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         display.getSize(point);
         Log.d("X and Y size", "X = " + point.x + ", Y = " + point.y);
 
-        mGameView = new GameView(this, point.x, point.y);
+        mGameView = new GameView(this, point.x, point.y,nama);
         setContentView(mGameView);
 
         //Sensor Accelerometer digunakan untuk menggerakan player ke kanan dan ke kiri
@@ -58,12 +60,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void onSensorChanged(SensorEvent event) {
         mXTemp = event.values[0];
 
-        if (event.values[0] > 1){
+        if (event.values[0] > 1) {
             mGameView.steerLeft(event.values[0]);
-        }
-        else if (event.values[0] < -1){
+        } else if (event.values[0] < -1) {
             mGameView.steerRight(event.values[0]);
-        }else{
+        } else {
             mGameView.stay();
         }
     }

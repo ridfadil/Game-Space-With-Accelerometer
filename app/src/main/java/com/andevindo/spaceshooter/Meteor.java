@@ -11,10 +11,9 @@ import java.util.Random;
 import static com.andevindo.spaceshooter.GameView.SCORE;
 
 /**
- * Created on   : 8/11/2017
- * Developed by : Hendrawan Adi Wijaya
- * Github       : https://github.com/andevindo
- * Website      : http://www.andevindo.com
+ * Created on   : 8/12/2018
+ * Developed by : Muhamad Farid Padilah
+ * Github       : https://github.com/ridfadil
  */
 
 public class Meteor {
@@ -39,7 +38,7 @@ public class Meteor {
         mScreenSizeY = screenSizeY;
         mSoundPlayer = soundPlayer;
 
-        mBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.meteor_1);
+        mBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.batuonefix);
         mBitmap = Bitmap.createScaledBitmap(mBitmap, mBitmap.getWidth() * 3/5, mBitmap.getHeight() * 3/5, false);
 
         mMaxX = screenSizeX - mBitmap.getWidth();

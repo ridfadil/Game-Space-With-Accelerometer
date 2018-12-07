@@ -8,10 +8,9 @@ import android.os.Build;
 import android.util.Log;
 
 /**
- * Created on   : 8/12/2017
- * Developed by : Hendrawan Adi Wijaya
- * Github       : https://github.com/andevindo
- * Website      : http://www.andevindo.com
+ * Created on   : 8/12/2018
+ * Developed by : Muhamad Farid Padilah
+ * Github       : https://github.com/ridfadil
  */
 
 public class SoundPlayer implements Runnable {

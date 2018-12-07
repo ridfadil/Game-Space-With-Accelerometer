@@ -14,10 +14,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Created on   : 8/11/2017
- * Developed by : Hendrawan Adi Wijaya
- * Github       : https://github.com/andevindo
- * Website      : http://www.andevindo.com
+ * Created on   : 8/12/2018
+ * Developed by : Muhamad Farid Padilah
+ * Github       : https://github.com/ridfadil
  */
 
 public class GameView extends SurfaceView implements Runnable {
@@ -38,9 +37,11 @@ public class GameView extends SurfaceView implements Runnable {
     private SharedPreferencesManager mSP;
     public static int SCORE = 0;
     private volatile boolean mIsGameOver;
+    String nama = "";
 
-    public GameView(Context context, int screenSizeX, int screenSizeY) {
+    public GameView(Context context, int screenSizeX, int screenSizeY, String nama) {
         super(context);
+        this.nama = nama;
 
         mScreenSizeX = screenSizeX;
         mScreenSizeY = screenSizeY;
@@ -90,7 +91,7 @@ public class GameView extends SurfaceView implements Runnable {
             if (Rect.intersects(m.getCollision(), mPlayer.getCollision())) {
                 m.destroy();
                 mIsGameOver = true;
-                if (SCORE>=mSP.getHighScore()){
+                if (SCORE >= mSP.getHighScore()) {
                     mSP.saveHighScore(SCORE);
                 }
             }
@@ -124,7 +125,7 @@ public class GameView extends SurfaceView implements Runnable {
             if (Rect.intersects(e.getCollision(), mPlayer.getCollision())) {
                 e.destroy();
                 mIsGameOver = true;
-                if (SCORE>=mSP.getHighScore()){
+                if (SCORE >= mSP.getHighScore()) {
                     mSP.saveHighScore(SCORE);
                 }
             }
@@ -173,7 +174,6 @@ public class GameView extends SurfaceView implements Runnable {
             for (int i = 0; i < random.nextInt(3) + 1; i++) {
                 mStars.add(new Star(getContext(), mScreenSizeX, mScreenSizeY, false));
             }
-
         }
 
 
@@ -208,20 +208,20 @@ public class GameView extends SurfaceView implements Runnable {
         Paint score = new Paint();
         score.setTextSize(30);
         score.setColor(Color.WHITE);
-        mCanvas.drawText("Score : " + SCORE, 100, 50, score);
+        mCanvas.drawText("Score " + nama + " : " + SCORE, 100, 50, score);
     }
 
     void drawGameOver() {
         Paint gameOver = new Paint();
         gameOver.setTextSize(100);
         gameOver.setTextAlign(Paint.Align.CENTER);
-        gameOver.setColor(Color.WHITE);
-        mCanvas.drawText("GAME OVER", mScreenSizeX / 2, mScreenSizeY / 2, gameOver);
+        gameOver.setColor(Color.RED);
+        mCanvas.drawText("GAME OVER!", mScreenSizeX / 2, mScreenSizeY / 2, gameOver);
         Paint highScore = new Paint();
         highScore.setTextSize(50);
         highScore.setTextAlign(Paint.Align.CENTER);
         highScore.setColor(Color.WHITE);
-        mCanvas.drawText("HighScore : " + mSP.getHighScore(), mScreenSizeX / 2, (mScreenSizeY / 2) + 60, highScore);
+        mCanvas.drawText(nama + " HighScore Kamu : " + mSP.getHighScore(), mScreenSizeX / 2, (mScreenSizeY / 2) + 60, highScore);
     }
 
     public void steerLeft(float speed) {
@@ -270,7 +270,7 @@ public class GameView extends SurfaceView implements Runnable {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                if (mIsGameOver){
+                if (mIsGameOver) {
                     reset();
                 }
                 break;
