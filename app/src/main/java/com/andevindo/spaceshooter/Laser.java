@@ -26,7 +26,7 @@ public class Laser {
         mScreenSizeY = screenSizeY;
         mIsEnemy = isEnemy;
 
-        mBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.laser_1);
+        mBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tembak);
         mBitmap = Bitmap.createScaledBitmap(mBitmap, mBitmap.getWidth() * 3/5, mBitmap.getHeight() * 3/5, false);
 
         mX = spaceShipX + spaceShip.getWidth()/2 - mBitmap.getWidth()/2;
