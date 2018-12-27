@@ -1,4 +1,4 @@
-package com.andevindo.spaceshooter;
+package com.farid.padilah;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -7,7 +7,7 @@ import android.graphics.Rect;
 
 import java.util.Random;
 
-import static com.andevindo.spaceshooter.GameView.SCORE;
+import static com.farid.padilah.GameView.SCORE;
 
 /**
  * Created on   : 8/12/2018
@@ -36,7 +36,8 @@ public class Enemy {
         mScreenSizeY = screenSizeY;
         mSoundPlayer = soundPlayer;
 
-        mHP = 5;
+        //nilai untuk tabrakan dan hapus object
+        mHP = 2;
 
         mEnemies = new int[]{R.drawable.musuhtwofix, R.drawable.musuhtwofix, R.drawable.enemy_red_3};
         Random random = new Random();
@@ -47,6 +48,7 @@ public class Enemy {
 
         mMaxX = screenSizeX - mBitmap.getWidth();
         mMaxY = screenSizeY - mBitmap.getHeight();
+
 
         mX = random.nextInt(mMaxX);
         mY = 0 - mBitmap.getHeight();
@@ -63,6 +65,7 @@ public class Enemy {
     public void update(){
         mY += 7 * mSpeed;
 
+        //Random Pergerakan Enemy
         if (mX<=0){
             mIsTurnRight = true;
         }else if (mX>=mScreenSizeX-mBitmap.getWidth()){
@@ -94,6 +97,7 @@ public class Enemy {
         }
     }
 
+    //hapus object
     public void destroy(){
         mY = mScreenSizeY + 1;
         mSoundPlayer.playCrash();

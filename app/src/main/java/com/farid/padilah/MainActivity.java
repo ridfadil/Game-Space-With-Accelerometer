@@ -1,7 +1,6 @@
-package com.andevindo.spaceshooter;
+package com.farid.padilah;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.graphics.Point;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;

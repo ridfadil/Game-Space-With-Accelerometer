@@ -1,4 +1,4 @@
-package com.andevindo.spaceshooter;
+package com.farid.padilah;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

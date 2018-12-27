@@ -1,4 +1,4 @@
-package com.andevindo.spaceshooter;
+package com.farid.padilah;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -85,11 +85,13 @@ public class GameView extends SurfaceView implements Runnable {
             mPlayer.fire();
         }
 
+        //Algoritma collosion
         for (Meteor m : mMeteors) {
             m.update();
 
             if (Rect.intersects(m.getCollision(), mPlayer.getCollision())) {
                 m.destroy();
+                //akan menjadi true
                 mIsGameOver = true;
                 if (SCORE >= mSP.getHighScore()) {
                     mSP.saveHighScore(SCORE);
@@ -122,6 +124,7 @@ public class GameView extends SurfaceView implements Runnable {
 
         for (Enemy e : mEnemies) {
             e.update();
+            //cek apakah terjadi  tabrakan
             if (Rect.intersects(e.getCollision(), mPlayer.getCollision())) {
                 e.destroy();
                 mIsGameOver = true;
@@ -137,6 +140,8 @@ public class GameView extends SurfaceView implements Runnable {
                 }
             }
         }
+
+        //delete Object apabila terjadi collision
         deleting = true;
         while (deleting) {
             if (mEnemies.size() != 0) {
@@ -179,6 +184,7 @@ public class GameView extends SurfaceView implements Runnable {
 
     }
 
+    //Menggambar tampilan dari masing masing object
     public void draw() {
         if (mSurfaceHolder.getSurface().isValid()) {
             mCanvas = mSurfaceHolder.lockCanvas();
@@ -204,6 +210,7 @@ public class GameView extends SurfaceView implements Runnable {
         }
     }
 
+    //Untuk Score
     void drawScore() {
         Paint score = new Paint();
         score.setTextSize(30);
@@ -211,6 +218,7 @@ public class GameView extends SurfaceView implements Runnable {
         mCanvas.drawText("Score " + nama + " : " + SCORE, 100, 50, score);
     }
 
+    //memanggil Text Game over
     void drawGameOver() {
         Paint gameOver = new Paint();
         gameOver.setTextSize(100);
@@ -224,10 +232,11 @@ public class GameView extends SurfaceView implements Runnable {
         mCanvas.drawText(nama + " HighScore Kamu : " + mSP.getHighScore(), mScreenSizeX / 2, (mScreenSizeY / 2) + 60, highScore);
     }
 
+    //Mengambil Nilai dari Accelerometer pada saat miring kiri
     public void steerLeft(float speed) {
         mPlayer.steerLeft(speed);
     }
-
+    //Mengambil Nilai dari Accelerometer pada saat miring kanan
     public void steerRight(float speed) {
         mPlayer.steerRight(speed);
     }
@@ -266,10 +275,13 @@ public class GameView extends SurfaceView implements Runnable {
         mGameThread.start();
     }
 
+    //Menangkap respon apabila sudah game over
+    //dengan satu kali sentuhan maka akan mulai game kembali
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                //kondisi Game Over akan terjadi reset
                 if (mIsGameOver) {
                     reset();
                 }

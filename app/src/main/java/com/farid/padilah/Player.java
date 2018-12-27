@@ -1,10 +1,9 @@
-package com.andevindo.spaceshooter;
+package com.farid.padilah;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -58,11 +57,14 @@ public class Player {
     }
 
     public void update(){
+        //Pengecekan kalau Nilai dari accelerometer bernilai kiri maka akan bergeser ke kiri
         if (mIsSteerLeft){
+            //kecepatan perpindahan object
             mX -= 10 * mSteerSpeed;
             if (mX<mMinX){
                 mX = mMinX;
             }
+            //Pengecekan kalau Nilai dari accelerometer bernilai kiri maka akan bergeser ke kanan
         }else if (mIsSteerRight){
             mX += 10 * mSteerSpeed;
             if (mX>mMaxX){

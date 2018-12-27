@@ -1,9 +1,8 @@
-package com.andevindo.spaceshooter;
+package com.farid.padilah;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 
 import java.util.Random;
 
@@ -47,7 +46,7 @@ public class Star {
     }
 
     public void update(){
-        mY += 7 * mSpeed;
+        mY += 12 * mSpeed;
     }
 
     public Bitmap getBitmap() {

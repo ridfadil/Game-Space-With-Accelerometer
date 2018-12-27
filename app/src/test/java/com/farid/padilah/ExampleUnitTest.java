@@ -1,4 +1,4 @@
-package com.andevindo.spaceshooter;
+package com.farid.padilah;
 
 import org.junit.Test;
 

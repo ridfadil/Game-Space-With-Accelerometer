@@ -1,14 +1,13 @@
-package com.andevindo.spaceshooter;
+package com.farid.padilah;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.graphics.Rect;
 
 import java.util.Random;
 
-import static com.andevindo.spaceshooter.GameView.SCORE;
+import static com.farid.padilah.GameView.SCORE;
 
 /**
  * Created on   : 8/12/2018
@@ -45,7 +44,7 @@ public class Meteor {
         mMaxY = screenSizeY - mBitmap.getHeight();
         mMinX = 0;
         mMinY = 0;
-        mHP = 3;
+        mHP = 1;
 
         Random random = new Random();
         mSpeed = random.nextInt(3) + 1;

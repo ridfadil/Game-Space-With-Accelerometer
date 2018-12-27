@@ -1,4 +1,4 @@
-package com.andevindo.spaceshooter;
+package com.farid.padilah;
 
 import android.content.Context;
 import android.media.AudioAttributes;
@@ -21,6 +21,8 @@ public class SoundPlayer implements Runnable {
     private int mExplodeId, mLaserId, mCrashId;
     private boolean mIsLaserPlaying, mIsExplodePlaying, mIsCrashPlaying;
 
+
+    //Memasukan Suara pada game dengan memakai SDK lolipop
     public SoundPlayer(Context context){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             AudioAttributes attributes = new AudioAttributes.Builder()
